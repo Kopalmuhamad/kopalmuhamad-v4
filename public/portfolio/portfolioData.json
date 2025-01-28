@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Excelent Car",
+    "description": "Excelent car is an application created for a car rental company that wants to enter the digital world by providing a car rental provider website that can be booked or ordered directly through the website. in this project I work as a fullstack developer using express js for the backend and react vite for the frontend or what we usually call MERN.",
+    "image": "/portfolio/excelent-car.png",
+    "sourceCode": "https://github.com/Kopalmuhamad/excelent-car-client",
+    "link": "https://excelent-car.vercel.app/"
+  },
+  {
+    "id": 2,
+    "title": "Easyshop",
+    "description": "Easyshop is an application designed to be ecommerce. It simplifies the process for users to purchase a products. In the development of Easyshop, I served as the fullstack engineer. I was responsible for working on several key aspects of the application's interface, including the home page, chat feature, booking list, integrating APIs. The technologies used in this project include Figma for responsive design, MERN is the main tech stack, and Tailwind CSS for styling,and Github for version control.",
+    "image": "/portfolio/easyshop.png",
+    "sourceCode": "https://github.com/Kopalmuhamad/easyshop-client/",
+    "link": "https://easyshop-five.vercel.app/"
+  },
+  {
+    "id": 3,
+    "title": "Zaki Chilli Select",
+    "description": "Easyshop is an application designed to be ecommerce. It simplifies the process for users to purchase a products. In the development of Easyshop, I served as the fullstack engineer. I was responsible for working on several key aspects of the application's interface, including the home page, chat feature, booking list, integrating APIs. The technologies used in this project include Figma for responsive design, MERN is the main tech stack, and Tailwind CSS for styling,and Github for version control.",
+    "image": "/portfolio/zaki-chilli.png",
+    "sourceCode": "https://github.com/Kopalmuhamad/zaki-chilli",
+    "link": "https://zaki-chilli-select.vercel.app/"
+  }
+]
