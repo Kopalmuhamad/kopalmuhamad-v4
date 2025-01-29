@@ -1,12 +1,7 @@
 "use client";
-import { formSubmission } from "@/actions/formAction";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Loader, Mail } from "lucide-react";
-import { useRef } from "react";
-import { useFormState, useFormStatus } from "react-dom";
 import { Button } from "../ui/button";
-import useIsomorphicLayoutEffect from "@/providers/useIsoMorphicLayout";
 import ContactFormLine from "./ContactFromLine";
 import MagneticEffect from "@/providers/MagneticEffect";
 import * as z from "zod";
