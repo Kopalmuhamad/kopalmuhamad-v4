@@ -1,7 +1,7 @@
 'use client'
-import { GlobeIcon } from 'lucide-react'
 import React, { useEffect, useRef } from 'react'
 import { motion, useAnimation, useInView } from "framer-motion"
+import { SpinningText } from '@/components/atoms/SpinningText'
 
 const HeroDomicilies = () => {
     const container = useRef<HTMLDivElement>(null)
@@ -26,14 +26,14 @@ const HeroDomicilies = () => {
     }
 
     return (
-        <motion.div ref={container} initial="hidden" animate={controls} variants={animation} className='absolute top-1/2 -translate-y-1/2 left-0 items-center justify-start gap-12 bg-muted text-muted-foreground py-4 pl-12 pr-12 border border-border rounded-tr-full rounded-br-full hidden md:flex'>
+        <motion.div ref={container} initial="hidden" animate={controls} variants={animation} className='absolute top-1/2 -translate-y-1/2 left-0 items-center justify-start gap-28 bg-muted text-muted-foreground py-10 pr-20 pl-4 border border-border rounded-tr-full rounded-br-full hidden md:flex'>
             <div className='flex flex-col items-start justify-center'>
-                <span className='flex items-center justify-center text-sm'>Located in, </span>
-                <span className='flex items-center justify-center text-sm'>Bogor, </span>
-                <span className='flex items-center justify-center text-sm'>Indonesia</span></div>
-            <div>
-                <GlobeIcon size={60} />
-            </div>
+                <span className='flex items-center justify-center'>Located in, </span>
+                <span className='flex items-center justify-center'>Bogor, </span>
+                <span className='flex items-center justify-center'>Indonesia</span></div>
+            <SpinningText>
+                learn more • earn more • grow more •
+            </SpinningText>
         </motion.div>
     )
 }

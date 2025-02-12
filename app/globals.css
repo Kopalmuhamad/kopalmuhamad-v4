@@ -82,7 +82,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-jakarta transition-all duration-500;
+    @apply bg-background text-foreground font-jakarta transition-all duration-200 ease-in-out;
   }
 }
 @layer base {

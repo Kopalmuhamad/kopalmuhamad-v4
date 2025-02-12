@@ -52,7 +52,7 @@ export default function ScrollProgressBar({
 
     return (
         <div
-            className={cn("fixed z-50 flex items-center justify-center backdrop-blur-md bg-secondary/70 rounded-full shadow-2xl", {
+            className={cn("fixed z-50 flex items-center justify-center backdrop-blur-sm bg-secondary/20 rounded-full shadow-2xl", {
                 "top-0 end-0": position === "top-right",
                 "bottom-5 end-5": position === "bottom-right",
                 "top-0 start-0": position === "top-left",
