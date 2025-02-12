@@ -1,7 +1,6 @@
 'use client'
 import { useTheme } from 'next-themes'
 import React, { useEffect, useState, memo } from 'react'
-import { Button } from '../atoms/Button'
 import { motion } from "framer-motion"
 import { MoonStarIcon, SunDimIcon } from 'lucide-react'
 
@@ -12,10 +11,6 @@ const ThemeSwitcher = () => {
     useEffect(() => {
         setMounted(true)
     }, [])
-
-    const toggleTheme = () => {
-        setTheme(theme === "light" ? "dark" : "light")
-    }
 
     if (!mounted) return null
 
