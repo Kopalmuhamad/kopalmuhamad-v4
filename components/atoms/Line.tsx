@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 
 interface MouseEvent {
     movementY: number;
@@ -16,23 +16,22 @@ export default function Line() {
     let time = Math.PI / 2;
     let reqId: number | null = null;
 
-    // Use the useEffect hook to set the path on component mount
-    useEffect(() => {
-        setPath(progress);
-    }, []);
-
-    // Define a function to set the path of the SVG element
-    const setPath = (progress: number) => {
-        // Get the width of the window
+    const setPath = useCallback((progress: number) => {
         const width = window.innerWidth * 1;
-
-        // Set the "d" attribute of the SVG path element using a quadratic Bézier curve
         path.current?.setAttributeNS(
             null,
             "d",
             `M0 250 Q${width * x} ${250 + progress}, ${width} 250`
         );
-    };
+    }, [x]);
+
+    // Use the useEffect hook to set the path on component mount
+    useEffect(() => {
+        setPath(progress);
+    }, [progress, setPath]);
+
+    // Define a function to set the path of the SVG element
+
 
     // Define a linear interpolation function
     const lerp = (x: number, y: number, a: number) => x * (1 - a) + y * a;

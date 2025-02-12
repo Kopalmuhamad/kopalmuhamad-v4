@@ -59,6 +59,30 @@ export const TextPressureAnimation: React.FC<TextPressureAnimationProps> = ({
         return Math.sqrt(dx * dx + dy * dy);
     };
 
+    const setSize = () => {
+        if (!containerRef.current || !titleRef.current) return;
+
+        const { width: containerW, height: containerH } = containerRef.current.getBoundingClientRect();
+
+        let newFontSize = containerW / (chars.length / 2);
+        newFontSize = Math.max(newFontSize, minFontSize);
+
+        setFontSize(newFontSize);
+        setScaleY(1);
+        setLineHeight(1);
+
+        requestAnimationFrame(() => {
+            if (!titleRef.current) return;
+            const textRect = titleRef.current.getBoundingClientRect();
+
+            if (scale && textRect.height > 0) {
+                const yRatio = containerH / textRect.height;
+                setScaleY(yRatio);
+                setLineHeight(yRatio);
+            }
+        });
+    };
+
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
             cursorRef.current.x = e.clientX;
@@ -85,31 +109,7 @@ export const TextPressureAnimation: React.FC<TextPressureAnimationProps> = ({
             window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('touchmove', handleTouchMove);
         };
-    }, []);
-
-    const setSize = () => {
-        if (!containerRef.current || !titleRef.current) return;
-
-        const { width: containerW, height: containerH } = containerRef.current.getBoundingClientRect();
-
-        let newFontSize = containerW / (chars.length / 2);
-        newFontSize = Math.max(newFontSize, minFontSize);
-
-        setFontSize(newFontSize);
-        setScaleY(1);
-        setLineHeight(1);
-
-        requestAnimationFrame(() => {
-            if (!titleRef.current) return;
-            const textRect = titleRef.current.getBoundingClientRect();
-
-            if (scale && textRect.height > 0) {
-                const yRatio = containerH / textRect.height;
-                setScaleY(yRatio);
-                setLineHeight(yRatio);
-            }
-        });
-    };
+    }, [setSize]);
 
     useEffect(() => {
         setSize();

@@ -3,7 +3,6 @@ import "../globals.css";
 import Navbar from "@/components/organisme/Navbar";
 import Footer from "@/components/organisme/Footer";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import ButtonToTop from "@/components/moleculs/ButtonToTop";
 import ScrollProgressBar from "@/components/atoms/ScrollProgressBar";
 
 
@@ -28,7 +27,7 @@ export default function RootLayout({
           enableSystem
         >
           <Navbar />
-          <ScrollProgressBar showPercentage />
+          <ScrollProgressBar />
           {children}
           <Footer />
         </ThemeProvider>

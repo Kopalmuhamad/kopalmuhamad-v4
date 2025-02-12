@@ -1,4 +1,3 @@
-import Line from '@/components/atoms/Line'
 import { NotebookIcon } from 'lucide-react'
 import React from 'react'
 
