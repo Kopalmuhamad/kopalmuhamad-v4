@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface TextPressureAnimationProps {
     text?: string;
@@ -59,7 +59,7 @@ export const TextPressureAnimation: React.FC<TextPressureAnimationProps> = ({
         return Math.sqrt(dx * dx + dy * dy);
     };
 
-    const setSize = () => {
+    const setSize = useCallback(() => {
         if (!containerRef.current || !titleRef.current) return;
 
         const { width: containerW, height: containerH } = containerRef.current.getBoundingClientRect();
@@ -81,7 +81,7 @@ export const TextPressureAnimation: React.FC<TextPressureAnimationProps> = ({
                 setLineHeight(yRatio);
             }
         });
-    };
+    }, [chars.length, minFontSize, scale]);
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {

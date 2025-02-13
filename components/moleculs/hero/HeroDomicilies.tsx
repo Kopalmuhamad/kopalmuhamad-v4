@@ -1,6 +1,6 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
-import { motion, useAnimation, useInView } from "framer-motion"
+import React from 'react'
+import { motion } from "framer-motion"
 import { SpinningText } from '@/components/atoms/SpinningText'
 
 const HeroDomicilies = () => {

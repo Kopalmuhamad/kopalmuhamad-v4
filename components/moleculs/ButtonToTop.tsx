@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import { ChevronUpIcon } from 'lucide-react'
 
 const ButtonToTop = ({ isVisible }: { isVisible: boolean }) => {

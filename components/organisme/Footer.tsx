@@ -1,5 +1,5 @@
 'use client'
-import { MapPinIcon, SendHorizontalIcon, SendIcon } from 'lucide-react'
+import { MapPinIcon, SendHorizontalIcon } from 'lucide-react'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../atoms/Forms'

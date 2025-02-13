@@ -1,7 +1,7 @@
 'use client'
 import { cn } from '@/lib/utils';
-import { motion, useAnimation, useInView, useMotionValue, useTransform } from 'framer-motion';
-import React, { useRef, useEffect } from 'react'
+import { motion, useMotionValue, useTransform } from 'framer-motion';
+import React from 'react'
 
 interface IHeroImageProps {
     containerClassName?: string;
