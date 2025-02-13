@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     motion,
     useMotionValueEvent,
@@ -33,6 +33,23 @@ export default function ScrollProgressBar({
         setPercentage(Math.round(latest));
     });
 
+    const { scrollY } = useScroll()
+    const [isVisible, setIsVisible] = useState(false)
+
+    useEffect(() => {
+        return scrollY.onChange((latest) => {
+            if (latest > 100) {
+                setIsVisible(true)
+            } else {
+                setIsVisible(false)
+            }
+        })
+    }, [scrollY])
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+
     if (type === "bar") {
         return (
             <div
@@ -52,9 +69,10 @@ export default function ScrollProgressBar({
 
     return (
         <div
-            className={cn("fixed z-50 flex items-center justify-center backdrop-blur-sm bg-secondary/20 rounded-full shadow-2xl", {
+            onClick={scrollToTop}
+            className={cn("fixed z-50 flex items-center justify-center backdrop-blur-sm bg-secondary/20 rounded-full shadow-2xl cursor-pointer", {
                 "top-0 end-0": position === "top-right",
-                "bottom-5 end-5": position === "bottom-right",
+                "bottom-20 end-5": position === "bottom-right",
                 "top-0 start-0": position === "top-left",
                 "bottom-0 start-0": position === "bottom-left",
             })}
@@ -81,7 +99,7 @@ export default function ScrollProgressBar({
                             style={{ pathLength: scrollYProgress }}
                         />
                     </svg>
-                    <ButtonToTop />
+                    <ButtonToTop isVisible={isVisible} />
                 </>
             )}
         </div>

@@ -45,10 +45,14 @@ const HeroName = ({ text, containerClassName, textClassName }: IHeroNameProps) =
                 delayChildren: 1.5,
                 staggerChildren: 0.25,
                 ease: "easeOut",
-            }}>
+            }}
+        >
             {text.split(' ').map((char, index) => (
                 <motion.div key={index} className='overflow-hidden'>
-                    <motion.span className={cn(textClassName, "flex items-center justify-center leading-none")} variants={animation} >
+                    <motion.span
+                        className={cn(textClassName, "flex items-center justify-center leading-none")}
+                        variants={animation}
+                    >
                         {char}
                     </motion.span>
                 </motion.div>

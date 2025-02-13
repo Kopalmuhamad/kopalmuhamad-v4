@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import {
     motion,
     useScroll,
@@ -8,8 +8,6 @@ import {
     useMotionValue,
     useVelocity,
     useAnimationFrame,
-    useInView,
-    useAnimation,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -26,19 +24,9 @@ interface ParallaxProps {
     delay?: number
 }
 
-export function ParallaxTextWithVelocity({ children, containerClassName, textClassName, duration = 1, delay = 0.5 }: ParallaxProps) {
+export function ParallaxTextWithVelocity(props: ParallaxProps) {
 
-    const container = useRef<HTMLDivElement>(null)
-    const isInView = useInView(container)
-    const controls = useAnimation()
-
-    useEffect(() => {
-        if (isInView) {
-            controls.start("visible")
-        } else {
-            controls.start("hidden")
-        }
-    }, [isInView, controls])
+    const { children, containerClassName, textClassName, duration = 1, delay = 0.5 } = props
 
     const animation = {
         hidden: {
@@ -92,7 +80,7 @@ export function ParallaxTextWithVelocity({ children, containerClassName, textCla
     });
 
     return (
-        <motion.div ref={container} initial="hidden" animate={controls} className={cn(containerClassName, "overflow-hidden tracking-[-2px] whitespace-nowrap flex flex-nowrap")}>
+        <motion.div initial="hidden" whileInView="visible" className={cn(containerClassName, "overflow-hidden tracking-[-2px] whitespace-nowrap flex flex-nowrap")}>
             <motion.div variants={animation} className={cn(textClassName, "font-semibold uppercase text-[64px] flex whitespace-nowrap flex-nowrap space-x-10")} style={{ x }}>
                 <motion.span className="flex items-center justify-center" style={{ skew: skewVelocityFactor }}>
                     {children}

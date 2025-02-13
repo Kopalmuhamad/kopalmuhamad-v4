@@ -13,19 +13,6 @@ interface IHeroImageProps {
 }
 
 const HeroImage = (props: IHeroImageProps) => {
-
-    const container = useRef<HTMLDivElement>(null)
-    const isInView = useInView(container)
-    const controls = useAnimation()
-
-    useEffect(() => {
-        if (isInView) {
-            controls.start("visible")
-        } else {
-            controls.start("hidden")
-        }
-    }, [isInView, controls])
-
     const {
         containerClassName = "",
         containerHeight = "h-[300px]",
@@ -66,9 +53,6 @@ const HeroImage = (props: IHeroImageProps) => {
 
     return (
         <motion.div
-            ref={container}
-            initial="hidden"
-            animate={controls}
             className={cn(containerClassName, containerHeight, containerWidth, 'overflow-hidden flex place-items-center place-content-center rounded-[30px] [perspective:300px]')}
             onMouseMove={handleMouse}
             drag
@@ -77,6 +61,8 @@ const HeroImage = (props: IHeroImageProps) => {
             dragElastic={0.4}
         >
             <motion.div
+                initial={"hidden"}
+                whileInView={"visible"}
                 variants={animation}
                 className={cn(imageClassName, imageWidth, imageHeight, 'cursor-grab active:cursor-grabbing bg-[url("/images/20250118_221100_099.jpg")] bg-cover bg-center rounded-[30px]')}
                 style={{
