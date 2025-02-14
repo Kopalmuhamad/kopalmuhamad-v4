@@ -2,25 +2,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import NavListItem from '@/components/atoms/NavListItem'
+import { links } from './navbarData'
 
-const navMenu = [
-    {
-        href: '/',
-        title: 'Home'
-    },
-    {
-        href: '/about',
-        title: 'About Me'
-    },
-    {
-        href: '/recent-project',
-        title: 'Recent Projects'
-    },
-    {
-        href: '/contact',
-        title: 'Contact'
-    }
-]
 
 const DesktopNavMenuList = () => {
 
@@ -37,7 +20,7 @@ const DesktopNavMenuList = () => {
 
     return (
         <motion.ul initial='hidden' animate='visible' transition={{ delayChildren: 1, staggerChildren: 0.25 }} className='flex items-center justify-center gap-4'>
-            {navMenu.map((item, index) => (
+            {links.map((item, index) => (
                 <motion.li key={index} variants={animation} >
                     <NavListItem href={item.href} title={item.title} />
                 </motion.li>

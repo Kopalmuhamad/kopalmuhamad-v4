@@ -6,7 +6,7 @@ import HeroDomicilies from '../moleculs/hero/HeroDomicilies'
 
 export const Hero = () => {
     return (
-        <section id='hero' className='relative overflow-hidden h-screen w-full flex items-center justify-center flex-col'>
+        <section id='home' className='relative overflow-hidden h-screen w-full flex items-center justify-center flex-col'>
             <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10'>
                 <HeroImage containerWidth='md:w-[400px] md:h-[400px]' imageWidth='w-[200px] md:w-[250px]' imageHeight='h-[200px] md:h-[250px]' />
             </div>

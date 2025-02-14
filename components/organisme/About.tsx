@@ -76,8 +76,6 @@ const skills =
     ]
 
 const About = () => {
-
-
     return (
         <section id='about' className='relative overflow-hidden'>
             <div className='relative py-10'>

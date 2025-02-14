@@ -11,6 +11,7 @@ import { Button } from '../atoms/Button'
 import { Textarea } from '../atoms/Textareas'
 import { Input } from '../atoms/Inputs'
 import Swal from 'sweetalert2'
+import { footerLinks } from '../moleculs/navbar/navbarData'
 
 const contactFormSchema = z.object({
     email: z.string().email(),
@@ -56,11 +57,12 @@ const Footer = () => {
 
     return (
         <div
+            id='contact'
             className='relative h-[800px] bg-secondary'
             style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
         >
             <div className='fixed bottom-0 h-[800px] w-full px-4 py-4 flex flex-col justify-between'>
-                <div className='grid grid-cols-[repeat(2,1fr)]'>
+                <div className='grid grid-cols-1 xs:grid-cols-[repeat(3,1fr)] sm:grid-cols-[repeat(3,1fr)] gap-8'>
                     <ul className='px-6'>
                         <li className='text-base font-bold mb-2'>
                             Navigation
@@ -77,6 +79,16 @@ const Footer = () => {
                         <li className='mt-1'>
                             <Link href={'/'} className='text-sm font-medium'>Contact</Link>
                         </li>
+                    </ul>
+                    <ul className='px-6'>
+                        <li className='text-base font-bold mb-2'>
+                            Social Media
+                        </li>
+                        {footerLinks.map(({ title, href }, i) => (
+                            <li className='mt-1' key={i}>
+                                <Link href={href} className='text-sm font-medium'>{title}</Link>
+                            </li>
+                        ))}
                     </ul>
                     <div className='px-6'>
                         <h1 className='text-base font-bold mb-2'>Address</h1>

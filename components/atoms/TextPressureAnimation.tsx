@@ -115,7 +115,7 @@ export const TextPressureAnimation: React.FC<TextPressureAnimationProps> = ({
         setSize();
         window.addEventListener('resize', setSize);
         return () => window.removeEventListener('resize', setSize);
-    }, [scale, text]);
+    }, [scale, text, setSize]);
 
     useEffect(() => {
         let rafId: number;
